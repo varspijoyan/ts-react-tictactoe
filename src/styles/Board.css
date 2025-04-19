@@ -1,0 +1,46 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.turn-text {
+    text-align: center;
+    margin-top: 40px;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.board {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;    
+    align-items: center;
+    margin-top: 40px;
+    gap: 5px;
+}
+
+.board .box {
+    border-radius: 20px;
+    width: 163px;
+    height: 163px;
+    background-color: rgb(200, 197, 197);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.restart {
+    margin-left: 43%;
+    margin-top: 20px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    color: white;
+    background-color: green;
+    cursor: pointer;
+}
