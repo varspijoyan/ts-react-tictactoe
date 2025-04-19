@@ -10,7 +10,7 @@ const Board: React.FC<Player> = ({ player }) => {
   const [boxes, setBoxes] = useState(Array(9).fill(null));
   const [playerTurn, setPlayerTurn] = useState<"X" | "O">(player);
   const [winner, setWinner] = useState<null | "X" | "O">(null);
-
+  const [tie, setTie] = useState(false);
  
   // clicking on the boxes
   const handleClick = (index: number) => {
@@ -52,18 +52,35 @@ const Board: React.FC<Player> = ({ player }) => {
     }
   }, [boxes]);
 
+  // checking for tie game
+  useEffect(() => {
+    const checkForTieGame = () => {
+      for(let i = 0; i < boxes.length; i++) {
+        if(boxes[i] === null) {
+          return false;
+        }
+      }
+      return true;
+    }
+
+    if(!winner && checkForTieGame()) {
+      setTie(prev => !prev);
+    }
+  }, [boxes, winner]);
+
   // restarting the game
   const handleRestart = () => {
     setBoxes(Array(9).fill(null));
     setPlayerTurn("X");
     setWinner(null);
+    setTie(false);
   }
 
   // rendering the component
   return (
     <>
       <div className="board-container">
-        <p className="turn-text">{winner ? `${winner} wins!` : `${playerTurn}'s turn`}</p>
+        <p className="turn-text">{winner ? `${winner} wins!` : tie ? "Tie game" : `${playerTurn}'s turn`}</p>
         <div className="board">
           {boxes.map((value, index) => (
             <div className="box" key={index} onClick={() => handleClick(index)}>
