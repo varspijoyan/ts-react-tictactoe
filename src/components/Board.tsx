@@ -83,7 +83,7 @@ const Board: React.FC<Player> = ({ player }) => {
         <p className="turn-text">{winner ? `${winner} wins!` : tie ? "Tie game" : `${playerTurn}'s turn`}</p>
         <div className="board">
           {boxes.map((value, index) => (
-            <div className="box" key={index} onClick={() => handleClick(index)}>
+            <div className={`box ${value === 'X' ? 'x' : 'o'}`} key={index} onClick={() => handleClick(index)}>
               {value}
             </div>
           ))}

@@ -31,6 +31,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 40px;
 }
 
 .restart {
@@ -43,4 +44,12 @@ body {
     color: white;
     background-color: green;
     cursor: pointer;
+}
+
+.x {
+    color: red;
+}
+
+.o {
+    color: blue;
 }
