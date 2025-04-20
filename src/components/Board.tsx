@@ -17,8 +17,8 @@ const Board: React.FC<Player> = ({ player }) => {
     // if the boxes is already filled we will just skip, or if the player is won we will not allow to fill the boxes
     if (winner || boxes[index]) return; 
 
-    // it's like when the player makes his first step (1 turn)
-    // react deletes the render of the 1 turn and creates the new render for the next step (turn) and fills the new box with the old box
+    // it's like when the player makes his first step (1st turn)
+    // react deletes the render of the 1 turn and creates the new render for the next step (turn) and fills the new box within the old box
     const newBoxes = [...boxes];
     newBoxes[index] = playerTurn;
     setBoxes(newBoxes);
